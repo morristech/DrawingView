@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.raed.drawingviewapp.MainActivity">
+
+   <com.raed.drawingview.DrawingView
+        android:id="@+id/drawing_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="8dp"
+        android:background="#ffffff"
+        android:layout_margin="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/settings_scrollview"
+        app:layout_constraintBottom_toTopOf="@id/brushes"
+        app:brush="calligraphy"
+        app:brush_size="1"
+        app:brush_color="#2187bb"
+        app:drawing_background_color="#dddddd"
+        />
+
+    <RadioGroup
+        android:id="@+id/brushes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/drawing_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <RadioButton
+            android:id="@+id/pencil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pencil" />
+
+        <RadioButton
+            android:id="@+id/eraser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/eraser" />
+
+        <RadioButton
+            android:id="@+id/air_brush"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/airbrush" />
+
+        <RadioButton
+            android:id="@+id/calligraphy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calligraphy" />
+
+        <RadioButton
+            android:id="@+id/pen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pen" />
+    </RadioGroup>
+
+    <ScrollView
+        android:id="@+id/settings_scrollview"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@id/drawing_view"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/brushes">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <com.raed.drawingview.BrushView
+                android:id="@+id/brush_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"/>
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:id="@+id/size_seek_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"/>
+
+
+            <include
+                android:id="@+id/brush_colors_container"
+                layout="@layout/colors"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#A0A0A0"
+                android:layout_margin="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"/>
+
+            <include
+                android:id="@+id/bg_colors_container"
+                layout="@layout/colors"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/undo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/undo"
+                    android:layout_marginEnd="16dp"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/redo"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/redo"
+                    android:textAllCaps="false"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/clear"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/reset_zoom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reset_zoom"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/zoom_mode_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/set_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/import_bitmap"
+                android:textAllCaps="false"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="app_name">DrawingView</string>
+
+    <string name="pencil">Pencil</string>
+    <string name="airbrush">AirBrush</string>
+    <string name="calligraphy">Calligraphy</string>
+    <string name="pen">Pen</string>
+    <string name="eraser">Eraser</string>
+
+    <string name="undo">undo()</string>
+    <string name="redo">redo()</string>
+    <string name="clear">clear()</string>
+    <string name="reset_zoom">resetZoom()</string>
+    <string name="enterzoommode">enterZoomMode()</string>
+    <string name="exitzoommode">exitZoomMode()</string>
+    <string name="import_bitmap">setDrawingBitmap()</string>
+
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="brush0_max_stroke_size">15dp</dimen>
+    <dimen name="brush0_min_stroke_size">1dp</dimen>
+
+    <dimen name="brush1_min_stroke_size">5dp</dimen>
+    <dimen name="brush1_max_stroke_size">30dp</dimen>
+
+    <dimen name="pencil_max_stroke_size">15dp</dimen>
+    <dimen name="pencil_min_stroke_size">1dp</dimen>
+
+    <dimen name="calligraphy_max_stroke_size">30dp</dimen>
+    <dimen name="calligraphy_min_stroke_size">3dp</dimen>
+
+    <dimen name="eraser_max_stroke_size">30dp</dimen>
+    <dimen name="eraser_min_stroke_size">1dp</dimen>
+
+    <dimen name="pen_min_stroke_size">1dp</dimen>
+    <dimen name="pen_max_stroke_size">40dp</dimen>
+
+</resources>
