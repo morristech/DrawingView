@@ -15,5 +15,7 @@
     <string name="enterzoommode">enterZoomMode()</string>
     <string name="exitzoommode">exitZoomMode()</string>
     <string name="import_bitmap">setDrawingBitmap()</string>
+    <string name="export">export()</string>
+    <string name="export_without_bg">exportWithoutBackground()</string>
 
 </resources>

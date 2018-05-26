@@ -209,7 +209,8 @@ public class DrawingView extends View{
                 Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         canvas.drawColor(mBGColor);
-        canvas.drawBitmap(mBGBitmap, 0, 0, null);
+        if (mBGBitmap != null)
+            canvas.drawBitmap(mBGBitmap, 0, 0, null);
         canvas.drawBitmap(mDrawingBitmap, 0, 0, null);
         return bitmap;
     }
