@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private Button mUndoButton;
     private Button mRedoButton;
 
-    private BrushView mBrushView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         mDrawingView = findViewById(R.id.drawing_view);
         mDrawingView.setUndoAndRedoEnable(true);
 
-        mBrushView = findViewById(R.id.brush_view);
-        mBrushView.setDrawingView(mDrawingView);
+        BrushView brushView = findViewById(R.id.brush_view);
+        brushView.setDrawingView(mDrawingView);
 
         mSizeSeekBar = findViewById(R.id.size_seek_bar);
         mSizeSeekBar.setMax(100);
@@ -49,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 BrushSettings brushSettings = mDrawingView.getBrushSettings();
                 brushSettings.setSelectedBrushSize(i/100f);
-                mBrushView.invalidate();
             }
             public void onStartTrackingTouch(SeekBar seekBar) {}
             public void onStopTrackingTouch(SeekBar seekBar) {}
@@ -121,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
         settings.setSelectedBrush(brushID);
         int sizeInPercentage = (int) (settings.getSelectedBrushSize() * 100);
         mSizeSeekBar.setProgress(sizeInPercentage);
-        mBrushView.invalidate();
     }
 
     private void setupUndoAndRedo() {
@@ -161,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
                 int color = ((ColorDrawable)view.getBackground()).getColor();
                 BrushSettings brushSettings = mDrawingView.getBrushSettings();
                 brushSettings.setColor(color);
-                mBrushView.invalidate();
             }
         };
         ViewGroup colorsContainer = findViewById(R.id.brush_colors_container);

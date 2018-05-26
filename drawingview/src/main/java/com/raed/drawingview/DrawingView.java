@@ -249,7 +249,7 @@ public class DrawingView extends View{
 
     public void resetZoom(){
         //if the bitmap is smaller than the view zoom in to make the bitmap fit the view
-        float targetSF = calcAppropriateScaleFactor(mDrawingBitmap.getWidth(), mDrawingBitmap.getHeight());//
+        float targetSF = calcAppropriateScaleFactor(mDrawingBitmap.getWidth(), mDrawingBitmap.getHeight());
 
         //align the bitmap in the center
         float targetX = (getWidth() - mDrawingBitmap.getWidth() * targetSF) / 2;

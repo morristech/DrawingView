@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.raed.drawingview.brushes.BrushSettings;
 import com.raed.drawingview.brushes.Brushes;
 
 public class BrushView extends View {
@@ -78,6 +79,12 @@ public class BrushView extends View {
 
     public void setDrawingView(DrawingView drawingView) {
         mBrushes = drawingView.getBrushes();
+        mBrushes.getBrushSettings().addBrushSettingListener(new BrushSettings.BrushSettingListener() {
+            @Override
+            public void onSettingsChanged() {
+                invalidate();
+            }
+        });
     }
 
 }

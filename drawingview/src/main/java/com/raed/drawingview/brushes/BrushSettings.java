@@ -1,12 +1,21 @@
 package com.raed.drawingview.brushes;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BrushSettings {
 
     private Brushes mBrushes;
 
     private int mSelectedBrush = Brushes.PENCIL;
     private int mColor = 0xff000000;//default to black
+
+    private List<BrushSettingListener> mListeners = new ArrayList<>();
+
+    public interface BrushSettingListener{
+        void onSettingsChanged();
+    }
 
     BrushSettings(Brushes brushes) {
         mBrushes = brushes;
@@ -19,6 +28,7 @@ public class BrushSettings {
     public void setSelectedBrush(int selectedBrush) {
         mSelectedBrush = selectedBrush;
         mBrushes.getBrush(mSelectedBrush).setColor(mColor);
+        notifyListeners();
     }
 
     public int getColor() {
@@ -29,6 +39,7 @@ public class BrushSettings {
         mColor = color;
         Brush selectedBrush = mBrushes.getBrush(mSelectedBrush);
         selectedBrush.setColor(mColor);
+        notifyListeners();
     }
 
     /**
@@ -57,6 +68,7 @@ public class BrushSettings {
         if (size > 1 || size < 0)
             throw new IllegalArgumentException("Size must be between 0 and 1");
         mBrushes.getBrush(brushID).setSizeInPercentage(size);
+        notifyListeners();
     }
 
     public float getBrushSize(int brushID){
@@ -65,5 +77,14 @@ public class BrushSettings {
 
     Brushes getBrushes() {
         return mBrushes;
+    }
+
+    public void addBrushSettingListener(BrushSettingListener listener) {
+        mListeners.add(listener);
+    }
+
+    private void notifyListeners(){
+        for (BrushSettingListener listener : mListeners)
+            listener.onSettingsChanged();
     }
 }
