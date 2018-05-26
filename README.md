@@ -9,19 +9,22 @@ DrawingView allows the user to draw with different brushes and provides some fea
 * **Preview the selected brush in BrushView**
 * **Custom background color**
 * **Export a drawing as a Bitmap**
+## Demo
+[https://www.youtube.com/watch?v=ApqwoVbGQv0](https://www.youtube.com/watch?v=ApqwoVbGQv0)
 
+![Screenshot](https://github.com/Raed-Mughaus/DrawingView/blob/master/screenshots/screenshot.png)
 
 ## Download
 Gradle:
 ```groovy
-implementation 'com.raed.drawingview:drawingview:1.0-beta'
+implementation 'com.raed.drawingview:drawingview:1.1-beta'
 ```
 Maven:
 ```xml
 <dependency>
   <groupId>com.raed.drawingview</groupId>
   <artifactId>drawingview</artifactId>
-  <version>1.0-beta</version>
+  <version>1.1-beta</version>
   <type>pom</type>
 </dependency>
 ```
